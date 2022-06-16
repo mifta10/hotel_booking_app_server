@@ -1,7 +1,12 @@
-const name ="Ryan"
+const express = require("express");
 
-module.exports={
-  name,
-}
+const app = express();
 
-console.log("server", process.version, module.exports);
+app.get("/api/:message",(req, res) => {
+  res.status(200).send(`Here is your Message: ${req.params.message}`);
+
+})
+
+app.listen(8000, ()=>{
+  console.log("Server is running on port 8000")
+})
